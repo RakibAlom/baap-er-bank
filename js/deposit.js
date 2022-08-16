@@ -41,5 +41,5 @@ depositSubmit.addEventListener('click',function() {
   let alert = document.getElementById('alert');
   let alertText = document.getElementById('alert-text');
   alert.classList.remove('hidden');
-  alertText.innerText = `$${newAmount} deposit successfully done from your account`;
+  alertText.innerText = `$${newAmount} Deposit Successfully Done, Thank you!`;
 })

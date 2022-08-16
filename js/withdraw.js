@@ -48,6 +48,6 @@ withdrawSubmit.addEventListener('click', function() {
   let alert = document.getElementById('alert');
   let alertText = document.getElementById('alert-text');
   alert.classList.remove('hidden');
-  alertText.innerText = `$${newWithdrawAmount} Withdraw successfully done from your account`;
+  alertText.innerText = `$${newWithdrawAmount} Withdraw Successfully Done!`;
   
 })
