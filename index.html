@@ -4,61 +4,39 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Portal - Baaper Bank LTD</title>
+  <title>Baaper Bank LTD</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-800 h-full">
-  <div class="h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-    <div>
-      <h1 class="py-4 text-center text-4xl tracking-tight font-bold text-white">Welcome to <span class="text-green-400">Baaper Bank LTD</span></h1>
-      <div class="max-w-md w-full space-y-8 bg-white px-5 py-5 rounded-lg">
-        <div>
-          <h2 class="text-center text-2xl tracking-tight font-bold text-gray-900">Sign in to your account</h2>
-        </div>
-        <div class="mt-8 space-y-6">
-          <input type="hidden" name="remember" value="true">
-          <div class="rounded-md shadow-sm -space-y-px">
-            <div>
-              <label for="email-address" class="sr-only">Email address</label>
-              <input id="email-address" name="email" type="email" autocomplete="email" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address">
-            </div>
-            <div>
-              <label for="password" class="sr-only">Password</label>
-              <input id="password" name="password" type="password" autocomplete="current-password" class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password">
-            </div>
+<body class="bg-gray-100">
+  <main class="flex justify-center items-center py-8 px-5 md:h-screen">
+    <section>
+      <div class="bank-info text-center">
+        <img class="h-16 mx-auto" src="./images/bank-icon.png" alt="Bank Icon">
+        <h1 class="text-4xl font-bold mt-4">Baaper <span class="text-violet-700">Bank</span> Limited</h1>
+      </div>
+      <div class="login-box mt-10 bg-white shadow-md py-4 md:py-5 px-5 md:px-10 rounded">
+        <h2 class="text-2xl font-bold">Login Please</h2>
+        <div class="login-field py-5">
+          <div class="input-field mb-2">
+            <label for="email-address" class="text-gray-600">Email address</label>
+            <input id="email" type="email" class="border block w-full py-1 px-2 mt-2 text-gray-600 focus:outline-none focus:border-purple-400 placeholder:text-sm" placeholder="Email address">
           </div>
-    
-          <div class="flex items-center justify-between">
-            <div class="flex items-center">
-              <input id="remember-me" name="remember-me" type="checkbox" checked class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-              <label for="remember-me" class="ml-2 block text-sm text-gray-900"> Remember me </label>
-            </div>
-    
-            <div class="text-sm">
-              <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> Forgot your password? </a>
-            </div>
+          <div class="input-field mb-2">
+            <label for="email-address" class="text-gray-600">Password</label>
+            <input id="password" type="email" class="border block w-full py-1 px-2 mt-2 focus:outline-none text-gray-600 focus:border-purple-400 placeholder:text-sm" placeholder="Enter Password">
           </div>
-    
-          <div>
-            <button id="login" type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" disabled>
-              <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
-                </svg>
-              </span>
-              Sign in
-            </button>
+          <div class="input-field mt-5">
+            <button id="login-submit" class="bg-gray-900 p-2 text-white w-full hover:bg-slate-800">Login</button>
           </div>
         </div>
       </div>
-      <div class="py-4 text-center text-gray-400">
-        <p>Email: rakib@bank.com</p>
-        <p>Password: 1234</p>
-      </div>
-    </div>
-  </div>
+      <p class="flex justify-between mt-5 text-sm text-gray-600">
+        <span>Email: rakib@bank.com</span>
+        <span>Password: 1234</span>
+      </p>
+    </section>
+  </main>
 
-  <!-- CUSTOM JAVASCRIPT -->
   <script src="./js/login.js"></script>
 </body>
 </html>

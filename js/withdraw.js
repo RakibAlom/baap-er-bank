@@ -1,53 +1,21 @@
-let inputAmount = document.getElementById('withdraw-amount');
-let withdrawSubmit = document.getElementById('withdrawSubmit');
+document.getElementById('withdrawSubmit').addEventListener('click', function () {
+  const newWithdrawAmount = getValue('withdrawInput');
 
-// Enable Withdraw Button
-inputAmount.addEventListener('keyup', function () {
-  if(inputAmount.value != ""){
-    withdrawSubmit.removeAttribute('disabled');
-  } else {
-    withdrawSubmit.setAttribute('disabled', true);
-  }
-})
+  // Prvious Withdraw Amount
+  const previousWithdrawAmount = totalAmount('withdrawAmount');
 
-// Withdraw Event Handler
-withdrawSubmit.addEventListener('click', function() {
-  // Get Withdraw Input Amount
-  let newInputAmount = document.getElementById('withdraw-amount');
-  let newWithdrawAmount = parseFloat(newInputAmount.value);
-  newInputAmount.value = '';
-  withdrawSubmit.setAttribute('disabled', true);
+  // Calculate New Withdraw Value
+  let newTotalAmount = newWithdrawAmount + previousWithdrawAmount;
 
-  // If Input Value Not Pure Number
-  if(isNaN(newWithdrawAmount)) {
-    return alert('please, enter valid number')
-  }
+  // Set Total Withdraw Value
+  setTotalValue('withdrawAmount', newTotalAmount);
 
-  // Get Previous Withdraw Amount
-  let getWithdrawAmount = document.getElementById('withdrawAmount');
-  let withdrawAmount = parseFloat(getWithdrawAmount.innerText);
+  // Get Previous Balance By Using The Function
+  let previousBalance = totalAmount('currentBalance');
+  let newBalanceTotal = previousBalance - newWithdrawAmount;
+  setTotalValue('currentBalance', newBalanceTotal);
 
-  // Get Current Amount
-  let getCurrentAmount = document.getElementById('currentAmount');
-  let currentAmount = parseFloat(getCurrentAmount.innerText);
-
-   // If Withdraw Amount More Then Current Ammount
-   if(newWithdrawAmount > currentAmount) {
-    return alert('please, you have not enough amount!');
-  }
-
-  // Get Total Withdraw Amount
-  let totalWithdrawAmount = withdrawAmount + newWithdrawAmount;
-  let totalCurrentAmmount = currentAmount - newWithdrawAmount;
-
-  // Show Total Withraw & Current Amount 
-  getWithdrawAmount.innerText = totalWithdrawAmount;
-  getCurrentAmount.innerText = totalCurrentAmmount;
-
-  // show alert
-  let alert = document.getElementById('alert');
-  let alertText = document.getElementById('alert-text');
-  alert.classList.remove('hidden');
-  alertText.innerText = `$${newWithdrawAmount} Withdraw Successfully Done!`;
-  
+  let message = document.getElementById('success-message');
+  message.innerText = `$${newWithdrawAmount} Withdraw Successfully Done...`;
+  alertSuccess.classList.remove('hidden');
 })

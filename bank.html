@@ -4,77 +4,75 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bank Account - Baaper Bank LTD</title>
+  <link rel="icon" type="image/x-icon" href="images/bank-icon.png"/>
+
+  <title>Baaper Bank LTD</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-800	h-full">
-  <div class="h-full w-10/12 lg:w-8/12 mx-auto">
-    <div>
-      <h1 class="py-4 text-center text-4xl tracking-tight font-bold text-white">Your <span class="text-green-400">Bank Account</span> Details</h1>
-
-      <div class="bg-green-100 rounded-lg py-2 px-4 mb-3 text-base text-green-700 inline-flex items-center w-full hidden" role="alert" id="alert">
-        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check-circle" class="w-4 h-4 mr-2 fill-current" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-          <path fill="currentColor" d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"></path>
-        </svg>
-        <span id="alert-text"></span>
+<body class="bg-gray-100">
+  <main class="py-10 px-10 mx-auto">
+    <section>
+      <div class="bank-info text-center">
+        <img class="h-16 mx-auto" src="./images/bank-icon.png" alt="Bank Icon">
+        <h1 class="text-4xl font-bold mt-4">Baaper <span class="text-violet-700">Bank Account</span> Details</h1>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mx-auto text-white font-semibold py-4">
-        <div class="bg-emerald-400 py-10 px-4 rounded-lg">
-          <h4 class="text-2xl tracking-tight font-bold text-gray-100 pb-3">Deposit</h4>
-          <h2 class="text-4xl tracking-tight font-bold text-gray-900 pb-3">$<span id="depositAmount">00</span></h2>
-        </div>
-        <div class="bg-blue-400 py-10 px-4 rounded-lg">
-          <h4 class="text-2xl tracking-tight font-bold text-gray-100 pb-3">Withdraw</h4>
-          <h2 class="text-4xl tracking-tight font-bold text-gray-900 pb-3">$<span id="withdrawAmount">00</span></h2>
-        </div>
-        <div class="bg-rose-400 py-10 px-4 rounded-lg">
-          <h4 class="text-2xl tracking-tight font-bold text-gray-100 pb-3">Balance</h4>
-          <h2 class="text-4xl tracking-tight font-bold text-gray-900 pb-3">$<span id="currentAmount">240</span></h2>
-        </div>
+      <!-- Success Alert -->
+      <div id="alert-success" class="rounded bg-slate-800 text-white flex justify-between alert border py-2 px-3 mt-6 hidden">
+        <p>
+          ✅ 
+          <span class="font-medium" id="success-message"></span>
+        </p>
+        <button onclick="successAlertClose()">⛔</button>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-white font-semibold">
-        <div class="bg-cyan-400 py-8 px-4 rounded-lg">
-          <div class="space-y-3">
-            <div class="rounded-md shadow-sm">
-              <div>
-                <h2 class="text-2xl tracking-tight font-bold text-gray-100 pb-3">Please Deposit</h2>
-                <input id="deposit-amount" name="deposit-amount" type="number" class="appearance-none rounded-md block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="$ Amount you want to deposit">
-              </div>
-            </div>
-            <div>
-              <button id="depositSubmit" class="group relative py-2 px-6 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" disabled>
-                </span>
-                Deposit
-              </button>
-            </div>
+      <!-- Warning Alert -->
+      <div id="alert-warning" class="rounded bg-red-500 text-white flex justify-between alert border py-2 px-3 mt-6 hidden">
+        <p>
+          ❌
+          <span class="font-medium" id="warning-message"></span>
+        </p>
+        <button onclick="warningAlertClose()">⛔</button>
+      </div>
 
+      <div class="grid md:grid-cols-3 gap-4 pt-10 w-10/12 lg:w-8/12 mx-auto">
+        <div class="border pt-10 px-5">
+          <h2 class="text-2xl font-bold">Deposit</h2>
+          <h2 class="text-4xl font-bold">$<span id="depositAmount">00</span></h2>
+        </div>
+        <div class="border py-10 px-5">
+          <h2 class="text-2xl font-bold">Withdraw</h2>
+          <h2 class="text-4xl font-bold">$<span id="withdrawAmount">00</span></h2>
+        </div>
+        <div class="border py-10 px-5">
+          <h2 class="text-2xl font-bold">Balance</h2>
+          <h2 class="text-4xl font-bold">$<span id="currentBalance">2460</span></h2>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4 pt-6 w-10/12 lg:w-8/12 mx-auto">
+        <div class="border py-10 px-6">
+          <h2 class="text-2xl font-bold">Please Deposit
+          </h2>
+          <div class="deposit-form py-4">
+            <input id="depositInput" type="number" class="border block w-full py-1 px-2 mt-2 focus:outline-none text-gray-600 focus:border-purple-400 placeholder:text-sm" placeholder="$ Amont you want to deposit">
+            <button id="depositSubmit" class="bg-gray-900 py-2 text-white w-full hover:bg-slate-800 font-medium mt-4">Deposit</button>
           </div>
         </div>
-        <div class="bg-violet-500 py-8 px-4 rounded-lg">
-          <div class="space-y-3">
-            <div class="rounded-md shadow-sm">
-              <div>
-                <h2 class="text-2xl tracking-tight font-bold text-gray-100 pb-3">Please Withdraw</h2>
-                <input id="withdraw-amount" name="withdraw-amount" type="number" class="appearance-none rounded-md block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="$ Amount you want to withdraw">
-              </div>
-            </div>
-            <div>
-              <button id="withdrawSubmit" class="group relative py-2 px-6 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" disabled>
-                </span>
-                Withdraw
-              </button>
-            </div>
-
+        <div class="border py-10 px-5">
+          <h2 class="text-2xl font-bold">Please Withdraw
+          </h2>
+          <div class="withdraw-form py-4">
+            <input id="withdrawInput" type="number" class="border block w-full py-1 px-2 mt-2 focus:outline-none text-gray-600 focus:border-purple-400 placeholder:text-sm" placeholder="$ Amont you want to withdraw">
+            <button class="bg-gray-900 py-2 text-white w-full hover:bg-slate-800 font-medium mt-4" id="withdrawSubmit">Withdraw</button>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+  </main>
 
-  <!-- CUSTOM JAVASCRIPT -->
+  <script src="./js/utilities.js"></script>
   <script src="./js/deposit.js"></script>
   <script src="./js/withdraw.js"></script>
+
 </body>
 </html>
