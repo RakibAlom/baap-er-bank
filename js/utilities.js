@@ -3,15 +3,14 @@ function getValue(input) {
   const inputValue = document.getElementById(input);
   let inputAmount = parseFloat(inputValue.value);
   inputValue.value = '';
-  if(isNaN(inputAmount)) {
-    let message = document.getElementById('warning-message');
-    message.innerText = `Semething Went Wrong...`;
-    alertWarning.classList.remove('hidden');
-    return;
-  }
+  // if(isNaN(inputAmount)) {
+  //   let message = document.getElementById('warning-message');
+  //   message.innerText = `Semething Went Wrong...`;
+  //   alertWarning.classList.remove('hidden');
+  //   return;
+  // }
 
   return inputAmount;
-  
 }
 
 // Get Total Amount From New Input Value

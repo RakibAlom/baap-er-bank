@@ -1,6 +1,10 @@
 document.getElementById('withdrawSubmit').addEventListener('click', function () {
   const newWithdrawAmount = getValue('withdrawInput');
 
+  // if(isNaN(newWithdrawAmount)) {
+  //   return ;
+  // }
+
   // Prvious Withdraw Amount
   const previousWithdrawAmount = totalAmount('withdrawAmount');
 

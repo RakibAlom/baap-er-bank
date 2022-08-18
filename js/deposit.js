@@ -1,6 +1,10 @@
 document.getElementById('depositSubmit').addEventListener('click', function() {
   const newDepositAmount = getValue('depositInput');
 
+  // if(isNaN(newDepositAmount)) {
+  //   return ;
+  // }
+
   // Prviouse Deposit Amount
   const previousDepositAmount = totalAmount('depositAmount');
 
