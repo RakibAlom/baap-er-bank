@@ -1,9 +1,20 @@
 document.getElementById('withdrawSubmit').addEventListener('click', function () {
+
   const newWithdrawAmount = getValue('withdrawInput');
 
-  // if(isNaN(newWithdrawAmount)) {
-  //   return ;
-  // }
+  // Check value is valid
+  if(isNaN(newWithdrawAmount)) {
+    return ;
+  }
+
+  // Get Previous Balance By Using The Function
+  let previousBalance = totalAmount('currentBalance');
+
+  // Check if withraw amount bigger then current balance
+  if (newWithdrawAmount > previousBalance) {
+    warnMessage.innerText = "Sorry, You have not enough balance!"
+    return alertWarning.classList.remove('hidden');
+  }
 
   // Prvious Withdraw Amount
   const previousWithdrawAmount = totalAmount('withdrawAmount');
@@ -14,12 +25,10 @@ document.getElementById('withdrawSubmit').addEventListener('click', function () 
   // Set Total Withdraw Value
   setTotalValue('withdrawAmount', newTotalAmount);
 
-  // Get Previous Balance By Using The Function
-  let previousBalance = totalAmount('currentBalance');
   let newBalanceTotal = previousBalance - newWithdrawAmount;
   setTotalValue('currentBalance', newBalanceTotal);
 
-  let message = document.getElementById('success-message');
+  // Success Message
   message.innerText = `$${newWithdrawAmount} Withdraw Successfully Done...`;
   alertSuccess.classList.remove('hidden');
 })

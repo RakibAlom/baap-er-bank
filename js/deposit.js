@@ -1,9 +1,9 @@
 document.getElementById('depositSubmit').addEventListener('click', function() {
   const newDepositAmount = getValue('depositInput');
 
-  // if(isNaN(newDepositAmount)) {
-  //   return ;
-  // }
+  if(isNaN(newDepositAmount)) {
+    return ;
+  }
 
   // Prviouse Deposit Amount
   const previousDepositAmount = totalAmount('depositAmount');
@@ -19,7 +19,6 @@ document.getElementById('depositSubmit').addEventListener('click', function() {
   let newBalanceTotal = newDepositAmount + previousTotalAmount;
   setTotalValue('currentBalance', newBalanceTotal);
   
-  let message = document.getElementById('success-message');
   message.innerText = `$${newDepositAmount} Deposit Successfully Done. Thank you!`;
   alertSuccess.classList.remove('hidden');
 })

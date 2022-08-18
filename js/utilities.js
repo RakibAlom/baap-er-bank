@@ -3,12 +3,11 @@ function getValue(input) {
   const inputValue = document.getElementById(input);
   let inputAmount = parseFloat(inputValue.value);
   inputValue.value = '';
-  // if(isNaN(inputAmount)) {
-  //   let message = document.getElementById('warning-message');
-  //   message.innerText = `Semething Went Wrong...`;
-  //   alertWarning.classList.remove('hidden');
-  //   return;
-  // }
+  if(isNaN(inputAmount)) {
+    let message = document.getElementById('warning-message');
+    message.innerText = `Semething Went Wrong...`;
+    alertWarning.classList.remove('hidden');
+  }
 
   return inputAmount;
 }
@@ -29,6 +28,8 @@ function setTotalValue (elementId, newValue) {
 // Alert Function
 let alertSuccess = document.getElementById('alert-success');
 let alertWarning = document.getElementById('alert-warning');
+let message = document.getElementById('success-message');
+let warnMessage = document.getElementById('warning-message');
 
 function successAlertClose() {
   return alertSuccess.classList.add("hidden");
